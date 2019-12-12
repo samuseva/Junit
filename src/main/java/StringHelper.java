@@ -2,14 +2,15 @@ import java.util.Random;
 
 public class StringHelper {
 
-    String alphanumeric = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    char[] alphanumeric = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789".toCharArray();
 
     public String generate(int stringLength) {
-        StringBuilder sb = new StringBuilder(stringLength);
+        char[] ch = new char[stringLength];
+        int len = alphanumeric.length - 1;
         Random random = new Random();
-        for (int i = stringLength; i > 0; i--)
-            sb.append(alphanumeric.charAt(random.nextInt(62)));
-        return sb.toString();
+        for (int i = 0; i < stringLength; i++)
+            ch[i] = alphanumeric[random.nextInt(len)];
+        return String.valueOf(ch);
     }
 
     public String reverse(String str) {
@@ -29,8 +30,8 @@ public class StringHelper {
         int len = ch.length - 1;
         ch[len] = Character.toUpperCase(ch[len]);
         for (int i = 0; i < len; i += 2) {
-            ch[i] = Character.toUpperCase(ch[i]);
-            ch[i + 1] = Character.toLowerCase(ch[i + 1]);
+            ch[i]   = Character.toUpperCase(ch[i]);
+            ch[i+1] = Character.toLowerCase(ch[i+1]);
         }
         return String.valueOf(ch);
     }
