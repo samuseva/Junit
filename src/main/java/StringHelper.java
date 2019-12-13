@@ -2,14 +2,14 @@ import java.util.Random;
 
 public class StringHelper {
 
-    char[] alphanumeric = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789".toCharArray();
+    char[] alphaNumeric = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789".toCharArray();
 
     public String generate(int stringLength) {
         char[] ch = new char[stringLength];
-        int len = alphanumeric.length - 1;
+        int len = alphaNumeric.length - 1;
         Random random = new Random();
         for (int i = 0; i < stringLength; i++)
-            ch[i] = alphanumeric[random.nextInt(len)];
+            ch[i] = alphaNumeric[random.nextInt(len)];
         return String.valueOf(ch);
     }
 
